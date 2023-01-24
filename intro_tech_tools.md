@@ -50,7 +50,7 @@ On the note of reproducibility: You yourself sometimes are not sure what your al
 
 [`GitLab`](https://about.gitlab.com/) is just the hosting platform where you can mirror your local project structure and share your work with the world (or with us for grading).
 
-Sooner or later, you will realize that sharing and managing (raw) data with `.csv` files or other formats is very cumbersome. For example, a .csv file lives only on the local computer and if you want to share it you have to physically copy and share the file (that is the data gets duplicated). Or have you ever (tried) to open an excel spreadsheet containing some GB of data just to get a feel for what it actually contains? As you will individually collect your raw data for the analysis (through surveying bus users) and share it with the rest of the class, we will use `PostgreSQL`. The database will be hosted on a server and therefore we can easily pull/access the data in our Python scripts with help of the `psycopg` Python package.
+Sooner or later, you will realize that sharing and managing (raw) data with `.csv` files or other formats is very cumbersome. For example, a .csv file lives only on the local computer and if you want to share it you have to physically copy and share the file (that is the data gets duplicated). Or have you ever (tried) to open an excel spreadsheet containing some GB of data just to get a feel for what it actually contains? As you will individually collect your raw data for the analysis (through surveying bus users) and share it with the rest of the class, we will use `PostgreSQL`. The database will be hosted on a server and therefore we can easily pull/access the data in our Python scripts with help of the `psycopg2` Python package.
 
 > Of course you can also run a Postgres DB on your local computer and organize your personal data without the need of a server (a server is just a computer system attached to a network).
 
@@ -337,7 +337,7 @@ Daniel;30
 
 But how do we actually execute the script? For this, I have written a simple bash script that helps you run it. Don't worry, all you have to do in the exercise is specifying the sql script and I will show you how to run it.
 
-> Remark: You could also achieve the same thing (i.e. initialize and populate the table) all from within Python with the `psycopg` package. But we thought it would be illustrative to use the actual sql syntax to do it. If you want to follow the pythonic way, [this]([psycopg](https://www.psycopg.org/psycopg3/docs/basic/usage.html) link gets you started.
+> Remark: You could also achieve the same thing (i.e. initialize and populate the table) all from within Python with the `psycopg2` package. But we thought it would be illustrative to use the actual sql syntax to do it. If you want to follow the pythonic way, [this]([psycopg2](https://www.psycopg.org/psycopg3/docs/basic/usage.html) link gets you started.
 
 To run the script you can issue the following command:
 
@@ -350,9 +350,9 @@ sh run_sql.sh username example.sql
 
 If you are interested please try to understand the `run_sql.sh` script.
 
-### psycopg
+### psycopg2
 
-Now we can easily communicate with the DB from our Python scripts with help of [psycopg](https://www.psycopg.org/psycopg3/docs/basic/usage.html). See the `query_example` from the `greatest_package.postgres` module for an example. Make sure to understand it!
+Now we can easily communicate with the DB from our Python scripts with help of [psycopg2](https://www.psycopg.org/psycopg3/docs/basic/usage.html). See the `query_example` from the `greatest_package.postgres` module for an example. Make sure to understand it!
 
 ```python
 from greatest_package import postgres as pg
@@ -370,7 +370,7 @@ pg.query_example()
 3. Write an sql script that initializes a new table called `<your eth-abbr>_message` containing only one column `message` and populate it with one secret message.
 4. Commit the newly created script and add a meaningful commit message.
 5. Try to implement the Python package repository structure as in `PuvIntro` or follow this [tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
-6. Write a function that queries the newly created table (with `psycopg`) and prints a message stored in the message table.
+6. Write a function that queries the newly created table (with `psycopg2`) and prints a message stored in the message table.
 7. Commit your awesome package
 8. Initilaize an new gitlab repository (hint: just navigate to *Create new project* https://gitlab.ethz.ch/projects/new and copy paste the code that pops up when you click *Show command* - you can paste the command into your terminal and execute it).
 9. Share your code with the message recipient.
