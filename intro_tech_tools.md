@@ -365,13 +365,15 @@ pg.query_example()
 
 ## Exercise
 
-1. Initialize a new empty repository in your `~/gitlab/` main repo.
-2. Initialize the repository to be a git repository.
+1. Initialize a new empty repository in your `~/gitlab/` main repo (hint: `mkdir`).
+2. Initialize the repository to be a git repository (hint: `git init .`).
 3. Write an sql script that initializes a new table called `<your eth-abbr>_message` containing only one column `message` and populate it with one secret message.
-4. Commit the newly created script and add a meaningful commit message.
+4. Commit the newly created script and add a meaningful commit message (hint: `git add . && git commit -m "your message"`).
 5. Try to implement the Python package repository structure as in `PuvIntro` or follow this [tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
-6. Write a function that queries the newly created table (with `psycopg2`) and prints a message stored in the message table.
-7. Commit your awesome package
+6. Initilize a virtual environment as well as make sure to add a `.gitignore` with the environments name.
+7. Write a function that queries the newly created table (with `psycopg2`) and prints a message stored in the message table (hint: see `src/greatest_package/postgres.py`).
+8. Save the dependencies to a `requirements.txt` file (hint: `pip freeze > requirements.txt`).
+7. Commit your awesome package.
 8. Initilaize an new gitlab repository (hint: just navigate to *Create new project* https://gitlab.ethz.ch/projects/new and copy paste the code that pops up when you click *Show command* - you can paste the command into your terminal and execute it).
-9. Share your code with the message recipient.
-10. Clone someone elses awesome package and try to call the function printing the secret message.
+9. Share your code with the message recipient (hint: See picture above where to find the link).
+10. Clone someone elses awesome package and try to call the function printing the secret message (hint: Don't forget to install the dependencies with `python3 -m pip install -r requirement.txt`).
