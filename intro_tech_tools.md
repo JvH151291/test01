@@ -49,6 +49,8 @@ But let's get started!
 
 ## Getting on the same page
 
+> Potentially have to add ssh...
+
 1. Fire up a terminal running `bash` or the `zsh` (on windows use [Git BASH](https://gitforwindows.org/))
 2. Check that git is installed and see some of the commands that we will use later: `git --help`
 3. Create a repository on your root and switch to it `cd ~ && mkdir gitlab && cd gitlab`
@@ -190,8 +192,8 @@ Git knows the state of each file in your git repository! But not only that, it a
 # Change directory (~ stands for your home directory)
 cd ~/gitlab
 
-# Create an exmaple directory (. stands for the current directory (i.e. ~/gitlab))
-mkdir ./test
+# Create an exmaple directory
+mkdir hello_git && cd hello_git
 
 # Init current directory (.) to be a git repository
 git init .
@@ -208,12 +210,86 @@ git status
 # (if you are using a venv called env do not include the env repo in git tracking)
 echo "env" > .gitignore
 
-# Add
+# Add the newly hello.txt file to be tracked (i.e. versioned)
+git add hello.txt
 
+# Check what happened - read the output!
+git status
 
+# Commit with a meaningful message
+git commit -m "just testing"
 ```
 
-**check that you've pointed to valuable resource, such as git book**
+So far in this example, we've only worked on our local machine. What if we want to collaborate and share our code? We first have to initialize a (remote) gitlab repository.
+
+1. Navigate to https://gitlab.ethz.ch/projects/new
+2. Click *Show command* and copy it
+3. Go back to your terminal and paste it (make sure to be in the `hello_git` repository) and execute
+4. See: your local repository has been mirrored on gitlab: https://gitlab.ethz.ch/daniehei/hello_git (replace daniehei with your username)
+
+Now the git cycle starts from before. Let's say we want to append a line in in hello.txt
+
+```bash
+# >> appends whereas > would overwrite
+echo "git is awesome" >> hello.txt
+
+# Print file to standard output (i.e. to your console)
+cat hello.txt
+
+# Again check the current status
+git status
+
+# Ok, hello.txt was modified. But what did we actually do?
+git diff
+
+# Great, we want to commit this change
+git add hello.txt
+git commit -m "important line added"
+
+# Let's broadcast this to the world
+git push
+```
+Check your gitlab repository and explore the GUI (graphical user interface) functionality! For example, navigate to *Commits* and click on *important line added*.
+
+![important_line](assets/important_line.png)
+
+if you want to share your repository you need to navigate to clone and copy the link (e.g. git@gitlab.ethz.ch:daniehei/hello_git.git):
+
+![share_repo](assets/share_repo.png)
+
+```bash
+# Let's remove our local repository (assume your computer cuaght fire)
+cd ~/gitlab
+rm -rf hello_git
+
+# And clone the remote repository
+git clone git@gitlab.ethz.ch:daniehei/hello_git.git
+
+# See it is here again
+ls
+```
+
+In the meantime, your colleague might change something and push it to the gitlab repository. Before you start working on your local machine, check whether there have been any updates! Do so by `git pull`.
+
+### Summary
+
+- This seems like a lot to remember... `git --help` might help
+- The most important commands are:
+    - `git init`: Initialize a git repository
+    - `git status`: Check the current status
+    - `git add file` or `git add .`: Add files or changes to files (the latter adds everything in the current (`.`) directory)
+    - `git commit -m "message"`: Commit the changes with a meaningful message (it's an art to write meaningful commit messages, just write what you did and avoid messages like *changed stuff*)
+    - `git push`: Push changes to remote (in our case gitlab)
+    - `git clone link`: Clone remote repository
+    - `git pull`: Pull potential changes from remote
+- Please read the first three chapters of the [git Book](https://git-scm.com/book/en/v2).
+
+> If you are overwhealmed with all this command line awesomeness you may want to use a GUI tool such [GitHub Desktop](https://desktop.github.com/). However, I would encourage you to embrace the command line! :) The commands discussed so far, can take you very far! If you would like to learn more this might be a good [starting point](https://www.learnshell.org/). The terminal is just an interface to interact with our computer. Inside the terminal you can run different shells: This is usually `bash` or `zsh` (which are very similar at our level of understanding)... If you are a Mac user, you might want to explore the [brew](https://brew.sh/) package manager to install and manage software (for example try to install lazygit). On Windows there is a similar package manager such as [chocolatey](https://chocolatey.org/). Linux uses `apt` or similar tools.
+
+
+## PostgreSQL
+
+
 
 # Exercise
 
