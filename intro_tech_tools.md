@@ -1,17 +1,17 @@
 # Technical Tools
 
----
+
 
 ## Prerequisites
 
 For this introduction you need the following software:
 
-- [`Python`](https://www.python.org/) (python3)
-- [`Visual Studio Code`](https://code.visualstudio.com/)
-- [`git`](https://git-scm.com/)
-- [`PostgreSQL`](https://www.postgresql.org/)
+- [Python](https://www.python.org/) (python3)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [git](https://git-scm.com/)
+- [PostgreSQL](https://www.postgresql.org/)
 
----
+
 
 ## Motivation
 
@@ -58,7 +58,7 @@ Sooner or later, you will realize that sharing and managing (raw) data with `.cs
 
 But let's get started!
 
----
+
 
 ## Getting on the same page
 
@@ -116,7 +116,7 @@ We have cloned the repository `PuvIntro` which is hosted on my gitlab page (i.e.
 
 This was a high level introduction of the basics. We now introduce each aspect in more detail as well as ellaborate a bit on PostgreSQL.
 
----
+
 
 ## Python
 
@@ -144,7 +144,7 @@ As already mentioned, the official documentation is always the best reference. H
 - [stackoverflow](https://stackoverflow.com/). However, you should be critical with the snippets that users provide and not simply copy paste without understanding what the code does...
 - Youtube (there it is important to find the right tutor: I find [Corey Schafer](https://www.youtube.com/@coreyms) very helpful. He also has a *Pandas Tutorials* and *Matplotlib Tutorials* playlist which you might find useful).
 
----
+
 
 ## venv
 
@@ -170,7 +170,7 @@ deactivate
 ...
 ```
 
----
+
 
 ## pip
 
@@ -196,7 +196,7 @@ pip freeze > requirements.txt
 
 Remark: The `>` operator pipes the output of the LHS into the file on the RHS.
 
----
+
 
 ## Git version control
 
@@ -302,7 +302,7 @@ In the meantime, your colleague might change something and push it to the gitlab
 
 > If you are overwhealmed with all this command line awesomeness you may want to use a GUI tool such [GitHub Desktop](https://desktop.github.com/). However, I would encourage you to embrace the command line! :) The commands discussed so far, can take you very far! If you would like to learn more this might be a good [starting point](https://www.learnshell.org/). The terminal is just an interface to interact with our computer. Inside the terminal you can run different shells: This is usually `bash` or `zsh` (which are very similar at our level of understanding)... If you are a Mac user, you might want to explore the [brew](https://brew.sh/) package manager to install and manage software (for example try to install lazygit). On Windows there is a similar package manager such as [chocolatey](https://chocolatey.org/). Linux uses `apt` or similar tools.
 
----
+
 
 ## PostgreSQL
 
@@ -361,7 +361,7 @@ from greatest_package import postgres as pg
 pg.query_example()
 ```
 
----
+
 
 ## Exercise
 
