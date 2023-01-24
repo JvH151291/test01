@@ -40,7 +40,7 @@ Python can be learned relatively easily (read the [docs](https://www.python.org/
 
 These building blocks can be combined to create statements and expressions, which are then used to write programs (I've asked [ChatGPT](https://chat.openai.com/chat) to write down these basic building blocks).
 
-Anyways, understanding these blocks is relatively simple and the power of using a language usually comes from its package ecosystem. A `package` is a collection of code (usually functions or objects and methods) which provide domain functionality (e.g. the [`pandas`](https://pandas.pydata.org/) package which provides powerful data analyis tools such as the `pandas.DataFrame` object and its associated methods). When learning how to use that functionality, it is not so much about learning complicated coding but simply about reading the documentation and understanding what function/method accomplishes what and what arguments you need to feed (more on this in the [Getting help](#getting-help) section).
+Anyways, understanding these blocks is relatively simple and the power of using a language usually comes from its package ecosystem. A `package` is a collection of code (usually functions or classes and methods) which provide domain functionality (e.g. the [`pandas`](https://pandas.pydata.org/) package which provides powerful data analyis tools such as the `pandas.DataFrame` class and its associated methods). When learning how to use that functionality, it is not so much about learning complicated coding but simply about reading the documentation and understanding what function/method accomplishes what and what arguments you need to feed (more on this in the [Getting help](#getting-help) section).
 
 > A sidenote on packages: You should not feel intimidated to write your own packages. A package (in any programming language) is just a conveniently structured repository following given conventions. You are welcome to learn more by following this [simple tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/) on how to write a minimal package in Python.
 
@@ -129,7 +129,7 @@ As already mentioned, the official documentation is always the best reference. H
 
 - `help(pandas)`
 - `dir(pandas)` (if you don't understand what `dir` does then type `help(dir)`)
-    - Ok, so there is a `DataFrame` object provided... What is it though? `help(pandas.DataFrame)`
+    - Ok, so there is a `DataFrame` class provided... What is it though? `help(pandas.DataFrame)`
         - Hint: You can scroll the document with the Vim-keys j and k and you can search for keywords like so `/keyword`.
         - Similarly: What can we do with the DataFrame? `dir(pandas.DataFrame)`
             - Aha, there is a filter `method`. But what can it do? `help(pandas.DataFrame.filter)`
