@@ -196,6 +196,25 @@ pip freeze > requirements.txt
 
 Remark: The `>` operator pipes the output of the LHS into the file on the RHS.
 
+*<span style="color:red">However, this is bad practice, as it will just dump any installed python package into requirements.txt [Here is even more background](https://towardsdatascience.com/stop-using-pip-freeze-for-your-python-projects-9c37181730f9).</span>* 
+
+Instead, install pipreqs into your venv:
+
+```bash
+pip install pipreqs
+```
+
+And then ask it to create a `requirements.txt` for you:
+
+```bash
+pipreqs --force
+```
+
+This will create a much smaller `requirements.txt`, as it only lists *primary* dependencies, which then in turn come
+with their own, well-defined dependencies. 
+
+Remark: `--force` allows pipreqs to overwrite an existing `requirements.txt`.
+
 
 
 ## Git version control
@@ -372,7 +391,7 @@ pg.query_example()
 5. Try to implement the Python package repository structure as in `PuvIntro` or follow this [tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
 6. Initialize a virtual environment as well as make sure to add a `.gitignore` with the environments name.
 7. Write a function that queries the newly created table (with `psycopg2`) and prints a message stored in the message table (hint: see `src/greatest_package/postgres.py`).
-8. Save the dependencies to a `requirements.txt` file (hint: `pip freeze > requirements.txt`).
+8. Save the dependencies to a `requirements.txt` file (hint: do not use `pip freeze > requirements.txt` [why](https://towardsdatascience.com/stop-using-pip-freeze-for-your-python-projects-9c37181730f9).
 7. Commit your awesome package.
 8. Initialize a new gitlab repository (hint: just navigate to *Create new project* https://gitlab.ethz.ch/projects/new and copy and paste the code that pops up when you click *Show command* - you can paste the command into your terminal and execute it).
 9. Share your code with the message recipient (hint: See picture above where to find the link).
