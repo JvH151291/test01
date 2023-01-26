@@ -1,6 +1,6 @@
 """Check out what the IDE does:
 
-- Autocmompletion, intellisense (or whatever it is called)
+- Autocompletion, intellisense (or whatever it is called)
 - Signature help
 - Go to Definition (directly jumps to the source code!)
 """
