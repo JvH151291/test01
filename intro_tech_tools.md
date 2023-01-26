@@ -177,13 +177,13 @@ deactivate
 [pip](https://pypi.org/project/pip/) is the Python package manager. You can read through the [Getting Started](https://pip.pypa.io/en/stable/getting-started/) guide at your leasure. I focus on the key commands that you should know. The basic usage is `pip install package`. However, this installs the package to the system's Python site-packages directory (so globally). If you have several Python versions installed (e.g. on linux you usually have both python2 and python3) then it is not clear to which Python version the pip command installs to as pip as well as pip3 are associated with one particular Python version. So therefore I would suggest that you call pip as a module starting with your preferred Python version like so:
 
 ```Python
-python3.8 -m pip install package
+python3 -m pip install package
 ```
 
 Update a package (for example pip) with the following command:
 
 ```Python
-python3.8 -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 ```
 
 Once you have activated the virtual environment, there is no need to call pip as a module. You can simply use `pip install package`.
@@ -191,7 +191,8 @@ Once you have activated the virtual environment, there is no need to call pip as
 You can list installed packages with `pip list`. If you want to make your environment reproducible, you can write the current state to a `requirements.txt` file like so:
 
 ```bash
-pip freeze > requirements.txt
+#pip freeze > requirements.txt
+pipreqs
 ```
 
 Remark: The `>` operator pipes the output of the LHS into the file on the RHS.
@@ -347,6 +348,7 @@ cd sql
 # Enter your pw when prompted
 sh run_sql.sh username example.sql
 ```
+> Each of you gets a username (guest_x) with a password which you are required to substitute, resp. enter when prompted.
 
 If you are interested please try to understand the `run_sql.sh` script.
 
