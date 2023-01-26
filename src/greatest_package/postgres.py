@@ -1,5 +1,6 @@
-import psycopg2
 from typing import Tuple
+
+import psycopg2
 
 
 def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> Tuple[int, str]:
