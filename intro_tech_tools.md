@@ -7,7 +7,7 @@
 For this introduction you need the following software:
 
 - [Python](https://www.python.org/) (python3)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [Pycharm Professional](https://www.jetbrains.com/pycharm)
 - [git](https://git-scm.com/)
 - [PostgreSQL](https://www.postgresql.org/)
 
@@ -21,6 +21,7 @@ We would like to help you establish (what we think) good practices in data manag
 - `PostgreSQL` database management
 - `Visual Studio Code` IDE (of course, you are free to use any editor you like - extra points for emacs or Vim users ;)
 - `Python`, `pip` and `venv` (virtual environments, you may also use conda if you prefer)
+- `black` to format your code automatically
 
 This document introduces these tools and hints to additional resources. We know, it is a lot to take in at once. But you can use this document as a reference for the course. Apart from the Python code that you will have to write to conduct the analysis, you should find a simple example for every command (of the other tools) that we need in this course which you can slightly adjust to suit your needs.
 
@@ -54,7 +55,7 @@ Sooner or later, you will realize that sharing and managing (raw) data with `.cs
 
 > Of course you can also run a Postgres DB on your local computer and organize your personal data without the need of a server (a server is just a computer system attached to a network).
 
-[`Visual Studio Code`](https://code.visualstudio.com/) is just an *Interactive Development Environment*, i.e. a text editor with superpowers such as syntax highlighting, autocompletion, syntax highlighting, signature help, integrated REPL, etc. You are free to use another one you like (for example PyCharm is another popular choice). While *Jupyter Notebooks* are very neat, they have some limitations in data analysis (for example code output and chronology of ran cells gets stored in the very file which makes it difficult to version control). Personally, I have a preference for general purpose tools such that you do not have to learn/use a new environment when you switch the language...
+[Pycharm Professional](https://www.jetbrains.com/pycharm) is just an *Interactive Development Environment*, i.e. a text editor with superpowers such as syntax highlighting, autocompletion, syntax highlighting, signature help, integrated REPL, etc. You are free to use another one you like (for example PyCharm is another popular choice). While *Jupyter Notebooks* are very neat, they have some limitations in data analysis (for example code output and chronology of ran cells gets stored in the very file which makes it difficult to version control). Personally, I have a preference for general purpose tools such that you do not have to learn/use a new environment when you switch the language...
 
 But let's get started!
 
@@ -138,7 +139,7 @@ As already mentioned, the official documentation is always the best reference. H
 > This documentation is automatically generated because the maintainers of the code added `docstrings` to their code (which you definitively should do as well!) Also, it is good practice to add `type hints` (see greetings.py -> daniehei_greets for an example).
 
 - Check out the file `ide_demo` which showcases the power of an IDE and allows you to jump directly to the definition in the source code.
-- You can get pretty much the same experience by going to the reference section of the [official documentation](https://pandas.pydata.org/docs/). There you additionally a gettings started guide and some other stuff which might help you get started.
+- You can get pretty much the same experience by going to the reference section of the [official documentation](https://pandas.pydata.org/docs/). There you additionally find a getting started guide and some other stuff which might help you get started.
 - We all heard of it: You might want to ask [ChatGPT](https://chat.openai.com/chat) for help. I strongly encourage you to try it out! The more precisely you can frame a question, the more helpful the answer. For example: *Mighty chatbot, how can I find out about implemented classes, methods and functions of a Python package?*
 - Google
 - [stackoverflow](https://stackoverflow.com/). However, you should be critical with the snippets that users provide and not simply copy and paste without understanding what the code does...
@@ -174,7 +175,7 @@ deactivate
 
 ## pip
 
-[pip](https://pypi.org/project/pip/) is the Python package manager. You can read through the [Getting Started](https://pip.pypa.io/en/stable/getting-started/) guide at your leasure. I focus on the key commands that you should know. The basic usage is `pip install package`. However, this installs the package to the system's Python site-packages directory (so globally). If you have several Python versions installed (e.g. on linux you usually have both python2 and python3) then it is not clear to which Python version the pip command installs to as pip as well as pip3 are associated with one particular Python version. So therefore I would suggest that you call pip as a module starting with your preferred Python version like so:
+[pip](https://pypi.org/project/pip/) is the Python package manager. You can read through the [Getting Started](https://pip.pypa.io/en/stable/getting-started/) guide at your leisure. I focus on the key commands that you should know. The basic usage is `pip install package`. However, this installs the package to the system's Python site-packages directory (so globally). If you have several Python versions installed (e.g. on linux you usually have both python2 and python3) then it is not clear to which Python version the pip command installs to as pip as well as pip3 are associated with one particular Python version. So therefore I would suggest that you call pip as a module starting with your preferred Python version like so:
 
 ```Python
 python3 -m pip install package
@@ -197,11 +198,49 @@ pipreqs
 
 Remark: The `>` operator pipes the output of the LHS into the file on the RHS.
 
+*<span style="color:red">However, this is bad practice, as it will just dump any installed python package into requirements.txt [Here is even more background](https://towardsdatascience.com/stop-using-pip-freeze-for-your-python-projects-9c37181730f9).</span>* 
 
+Instead, install pipreqs into your venv:
+
+```bash
+pip install pipreqs
+```
+
+And then ask it to create a `requirements.txt` for you:
+
+```bash
+pipreqs --force
+```
+
+This will create a much smaller `requirements.txt`, as it only lists *primary* dependencies, which then in turn come
+with their own, well-defined dependencies. 
+
+Remark: `--force` allows pipreqs to overwrite an existing `requirements.txt`.
+
+## Black to format your code
+
+Formatting code is an art and can be highly subjective. However, if all people in a team were to format their code by individual preference, the repository is getting messy.
+Hence, we rely on `black`:
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+Black is inspired by Henry Ford who is often quoted as *"you can have your car in any color you like, as long as its black"*. 'black' follows the same philosophy, as it allows almost no customisation, leading to consistently formatted code. To use it install it first in your venv:
+
+```bash
+pip install black
+```
+
+Once installed, you can use it to format all the conde in your project at once:
+
+```bash
+black -l120 . --exclude=venv,assets
+```
+
+The arguments mean the following: `-l120` restricts lines to be at max 120 characters long. `.` is telling it, that we want it to reformat all code in this directory and its subdirectories. Finally, we `--exclude` `venv` and `assets`. 
 
 ## Git version control
 
-> Please read the first three chapters of the [git Book](https://git-scm.com/book/en/v2). It takes maybe 30-60 minutes and I promise you, knowing a little about git will serve you well not only in this course!
+> Please read the first three chapters of the [git Book](https://git-scm.com/book/en/v2). It takes maybe 30-60 minutes, and I promise you, knowing a little about git will serve you well not only in this course!
 
 Git knows the state of each file in your git repository! But not only that, it also remembers all the previously committed stages. It knows the differences of all these stages, and they are easily recoverable. Let's explore and explain some of its core functionality:
 
@@ -301,7 +340,7 @@ In the meantime, your colleague might change something and push it to the gitlab
     - `git pull`: Pull potential changes from remote
 - Please read the first three chapters of the [git Book](https://git-scm.com/book/en/v2).
 
-> If you are overwhealmed with all this command line awesomeness you may want to use a GUI tool such [GitHub Desktop](https://desktop.github.com/). However, I would encourage you to embrace the command line! :) The commands discussed so far, can take you very far! If you would like to learn more this might be a good [starting point](https://www.learnshell.org/). The terminal is just an interface to interact with our computer. Inside the terminal you can run different shells: This is usually `bash` or `zsh` (which are very similar at our level of understanding)... If you are a Mac user, you might want to explore the [brew](https://brew.sh/) package manager to install and manage software (for example try to install lazygit). On Windows there is a similar package manager such as [chocolatey](https://chocolatey.org/). Linux uses `apt` or similar tools.
+> If you are overwhelmed with all this command line awesomeness you may want to use a GUI tool such [GitHub Desktop](https://desktop.github.com/). However, I would encourage you to embrace the command line! :) The commands discussed so far, can take you very far! If you would like to learn more this might be a good [starting point](https://www.learnshell.org/). The terminal is just an interface to interact with our computer. Inside the terminal you can run different shells: This is usually `bash` or `zsh` (which are very similar at our level of understanding)... If you are a Mac user, you might want to explore the [brew](https://brew.sh/) package manager to install and manage software (for example try to install lazygit). On Windows there is a similar package manager such as [chocolatey](https://chocolatey.org/). Linux uses `apt` or similar tools.
 
 
 

@@ -1,8 +1,7 @@
 import psycopg2
-from typing import Tuple
 
 
-def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> Tuple[int, str]:
+def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> tuple[int, str]:
     """
     Queries the table corresponding to an eth_username and returns the name and age
 
@@ -11,7 +10,7 @@ def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> Tup
 
     :param pw: The password corresponding to sql_user
     :type pw: str
-    
+
     :param eth_username: The ETH username (should correspond to a table name; default: "Daniel")
     :type eth_username: str
 
@@ -29,6 +28,6 @@ def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> Tup
         # Open a cursor to perform database operations
         with conn.cursor() as cur:
             # Query the database and obtain data as Python objects.
-            cur.execute("SELECT * FROM {}".format(eth_username))
+            cur.execute(f"SELECT * FROM {eth_username}")
             person = cur.fetchall()
             return person[0]
