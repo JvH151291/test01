@@ -15,7 +15,7 @@ For this introduction you need the following software:
 
 ## Motivation
 
-We would like to help you establish (what we think) good practices in data management and programming/scripting. Therefore we use (and partially enforce the use) of the following tools in this exercise series:
+We would like to help you establish (what we think) good practices in data management and programming/scripting. Therefore, we use (and partially enforce the use) of the following tools in this exercise series:
 
 - `git` version control and `GitLab` (to collaborate on code)
 - `PostgreSQL` database management
@@ -40,21 +40,21 @@ Python can be learned relatively easily (read the [docs](https://www.python.org/
 
 These building blocks can be combined to create statements and expressions, which are then used to write programs (I've asked [ChatGPT](https://chat.openai.com/chat) to write down these basic building blocks).
 
-Anyways, understanding these blocks is relatively simple and the power of using a language usually comes from its package ecosystem. A `package` is a collection of code (usually functions or classes and methods) which provide domain functionality (e.g. the [`pandas`](https://pandas.pydata.org/) package which provides powerful data analyis tools such as the `pandas.DataFrame` class and its associated methods). When learning how to use that functionality, it is not so much about learning complicated coding but simply about reading the documentation and understanding what function/method accomplishes what and what arguments you need to feed (more on this in the [Getting help](#getting-help) section).
+Anyway, understanding these blocks is relatively simple and the power of using a language usually comes from its package ecosystem. A `package` is a collection of code (typically functions or classes and methods) which provide domain functionality (e.g. the [`pandas`](https://pandas.pydata.org/) package which provides powerful data analysis tools such as the `pandas.DataFrame` class and its associated methods). When learning how to use that functionality, it is not so much about learning complicated coding but simply about reading the documentation and understanding what function/method accomplishes what and what arguments you need to feed (more on this in the [Getting help](#getting-help) section).
 
 > A sidenote on packages: You should not feel intimidated to write your own packages. A package (in any programming language) is just a conveniently structured repository following given conventions. You are welcome to learn more by following this [simple tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/) on how to write a minimal package in Python.
 
-We will learn how to easily install packages with `pip` - the Python package manger. Every analysis should be reproducable, i.e. anyone should be able to arrive at the same output given the input (i.e. raw data) preferably on any system (e.g. mac, windows, linux). Therefore we want to encapsulate our environment such that it is easily portable and can be shared with others (students, researchers, the public, etc.). For this purpose we install the packages into so-called *virtuel environments* (`venv`).
+We will learn how to easily install packages with `pip` - the Python package manager. Every analysis should be reproducible, i.e. anyone should be able to arrive at the same output given the input (i.e. raw data) preferably on any system (e.g. mac, windows, linux). Therefore, we want to encapsulate our environment such that it is easily portable and can be shared with others (students, researchers, the public, etc.). For this purpose we install the packages into so-called *virtuel environments* (`venv`).
 
-On the note of reproducibility: You yourself sometimes are not sure what your alter ego did. (Automatically) documenting the different stages of your development and project work therefore makes sense. Further, you sometimes do something wrong or want to revert your work to a previous state. Therefore a version control system (`git`) is a very powerful tool. It also allows you to collaborate effectively, without having to worry to overwrite your colleagues state of work!
+On the note of reproducibility: You yourself sometimes are not sure what your alter ego did. (Automatically) documenting the different stages of your development and project work therefore makes sense. Further, you sometimes do something wrong or want to revert your work to a previous state. Therefore, a version control system (`git`) is a very powerful tool. It also allows you to collaborate effectively, without having to worry to overwrite your colleagues state of work!
 
 [`GitLab`](https://about.gitlab.com/) is just the hosting platform where you can mirror your local project structure and share your work with the world (or with us for grading).
 
-Sooner or later, you will realize that sharing and managing (raw) data with `.csv` files or other formats is very cumbersome. For example, a .csv file lives only on the local computer and if you want to share it you have to physically copy and share the file (that is the data gets duplicated). Or have you ever (tried) to open an excel spreadsheet containing some GB of data just to get a feel for what it actually contains? As you will individually collect your raw data for the analysis (through surveying bus users) and share it with the rest of the class, we will use `PostgreSQL`. The database will be hosted on a server and therefore we can easily pull/access the data in our Python scripts with help of the `psycopg2` Python package.
+Sooner or later, you will realize that sharing and managing (raw) data with `.csv` files or other formats is very cumbersome. For example, a .csv file lives only on the local computer and if you want to share it you have to physically copy and share the file (that is the data gets duplicated). Or have you ever (tried) to open an Excel spreadsheet containing some GB of data just to get a feel for what it actually contains? As you will individually collect your raw data for the analysis (through surveying bus users) and share it with the rest of the class, we will use `PostgreSQL`. The database will be hosted on a server, and therefore we can easily pull/access the data in our Python scripts with help of the `psycopg2` Python package.
 
 > Of course you can also run a Postgres DB on your local computer and organize your personal data without the need of a server (a server is just a computer system attached to a network).
 
-[`Visual Studio Code`](https://code.visualstudio.com/) is just an *Interactive Development Enviornment*, i.e. a text editor with superpowers such as syntax highlighting, autocompletions, syntax highlighting, signature help, integrated REPL, etc. You are free to use another one you like (for exmample PyCharm is another popular choice). While *Jupyter Notebooks* are very neat, they have some limitations in data analysis (for example code output and chronology of ran cells gets stored in the very file which makes it difficult to version control). Personally, I have a preference for general purpose tools such that you do not have to learn/use a new environment when you switch the language...
+[`Visual Studio Code`](https://code.visualstudio.com/) is just an *Interactive Development Environment*, i.e. a text editor with superpowers such as syntax highlighting, autocompletion, syntax highlighting, signature help, integrated REPL, etc. You are free to use another one you like (for example PyCharm is another popular choice). While *Jupyter Notebooks* are very neat, they have some limitations in data analysis (for example code output and chronology of ran cells gets stored in the very file which makes it difficult to version control). Personally, I have a preference for general purpose tools such that you do not have to learn/use a new environment when you switch the language...
 
 But let's get started!
 
@@ -64,8 +64,8 @@ But let's get started!
 
 > Potentially have to add ssh...
 
-1. Fire up a terminal running `bash` or the `zsh` (on windows use [Git BASH](https://gitforwindows.org/))
-2. Check that git is installed and see some of the commands that we will use later: `git --help`
+1. Fire up a terminal running `bash` or the `zsh` (on Windows use [Git BASH](https://gitforwindows.org/))
+2. Check that git is installed and see some commands that we will use later: `git --help`
 3. Create a repository on your root and switch to it `cd ~ && mkdir gitlab && cd gitlab`
 4. Get this PuvIntro repository (i.e. `clone` it from gitlab) `git clone git@gitlab.ethz.ch:daniehei/PuvIntro.git`
 5. Open vscode (`code .`) and click on the README file.
@@ -114,7 +114,7 @@ By the way, the `PuvIntro` is structured as a Python package:
 
 We have cloned the repository `PuvIntro` which is hosted on my gitlab page (i.e. we made a local versioned copy of it). Subsequently, we've created a virtual environment and told our IDE to use it when interpreting Python code. We could conveniently explore the functions by locally installing our package. We have installed all the dependencies that would be required to run our code from the `requirements.txt` file. That is, we are all on the same page: We all have the same version of the PuvIntro project and this project is evaluated in the exactly same environemnt (Sideremark: maybe you have a slightly different python3 version, but this does not matter for now). We then extended the project's functionality and made it publicly available on gitlab. This allows others to leverage the functionality and explore the project evolution and contribute to your code without messing it up with help of `git`. So the full cycle is (clone), pull, change a bit, commit meaningful chunks, push, restart the game, ...
 
-This was a high level introduction of the basics. We now introduce each aspect in more detail as well as ellaborate a bit on PostgreSQL.
+This was a high level introduction of the basics. We now introduce each aspect in more detail as well as elaborate a bit on PostgreSQL.
 
 
 
@@ -130,7 +130,7 @@ As already mentioned, the official documentation is always the best reference. H
 - `help(pandas)`
 - `dir(pandas)` (if you don't understand what `dir` does then type `help(dir)`)
     - Ok, so there is a `DataFrame` class provided... What is it though? `help(pandas.DataFrame)`
-        - Hint: You can scroll the document with the Vim-keys j and k and you can search for keywords like so `/keyword`.
+        - Hint: You can scroll the document with the Vim-keys j and k, and you can search for keywords like so `/keyword`.
         - Similarly: What can we do with the DataFrame? `dir(pandas.DataFrame)`
             - Aha, there is a filter `method`. But what can it do? `help(pandas.DataFrame.filter)`
             - Remark: Why is it not the same as simply typing `help(filter)`?
@@ -138,10 +138,10 @@ As already mentioned, the official documentation is always the best reference. H
 > This documentation is automatically generated because the maintainers of the code added `docstrings` to their code (which you definitively should do as well!) Also, it is good practice to add `type hints` (see greetings.py -> daniehei_greets for an example).
 
 - Check out the file `ide_demo` which showcases the power of an IDE and allows you to jump directly to the definition in the source code.
-- You can get pretty much the same experience by going to the reference section of the [official documentation](https://pandas.pydata.org/docs/). There you additionally a gettings started guide and some other stuff which might help you get started.
+- You can get pretty much the same experience by going to the reference section of the [official documentation](https://pandas.pydata.org/docs/). There you additionally find a getting started guide and some other stuff which might help you get started.
 - We all heard of it: You might want to ask [ChatGPT](https://chat.openai.com/chat) for help. I strongly encourage you to try it out! The more precisely you can frame a question, the more helpful the answer. For example: *Mighty chatbot, how can I find out about implemented classes, methods and functions of a Python package?*
 - Google
-- [stackoverflow](https://stackoverflow.com/). However, you should be critical with the snippets that users provide and not simply copy paste without understanding what the code does...
+- [stackoverflow](https://stackoverflow.com/). However, you should be critical with the snippets that users provide and not simply copy and paste without understanding what the code does...
 - Youtube (there it is important to find the right tutor: I find [Corey Schafer](https://www.youtube.com/@coreyms) very helpful. He also has a *Pandas Tutorials* and *Matplotlib Tutorials* playlist which you might find useful).
 
 
@@ -174,7 +174,7 @@ deactivate
 
 ## pip
 
-[pip](https://pypi.org/project/pip/) is the Python package manager. You can read throught the [Getting Started](https://pip.pypa.io/en/stable/getting-started/) guide at your leasure. I focus on the key commands that you should know. The basic usage is `pip install package`. However, this installs the package to the system's Python site-packages directory (so globally). If you have several Python versions installed (e.g. on linux you usually have both python2 and python3) then it is not clear to which Python version the pip command installs to as pip as well as pip3 are associated with one particular Python version. So therefore I would suggest that you call pip as a module starting with your preferred Python version like so:
+[pip](https://pypi.org/project/pip/) is the Python package manager. You can read through the [Getting Started](https://pip.pypa.io/en/stable/getting-started/) guide at your leisure. I focus on the key commands that you should know. The basic usage is `pip install package`. However, this installs the package to the system's Python site-packages directory (so globally). If you have several Python versions installed (e.g. on linux you usually have both python2 and python3) then it is not clear to which Python version the pip command installs to as pip as well as pip3 are associated with one particular Python version. So therefore I would suggest that you call pip as a module starting with your preferred Python version like so:
 
 ```Python
 python3.8 -m pip install package
@@ -188,7 +188,7 @@ python3.8 -m pip install --upgrade pip
 
 Once you have activated the virtual environment, there is no need to call pip as a module. You can simply use `pip install package`.
 
-You can list installed packages with `pip list`. If you want to make your environment reproducable, you can write the current state to a `requirements.txt` file like so:
+You can list installed packages with `pip list`. If you want to make your environment reproducible, you can write the current state to a `requirements.txt` file like so:
 
 ```bash
 pip freeze > requirements.txt
@@ -200,9 +200,9 @@ Remark: The `>` operator pipes the output of the LHS into the file on the RHS.
 
 ## Git version control
 
-> Please read the first three chapters of the [git Book](https://git-scm.com/book/en/v2). It takes maybe 30-60 minutes and I promise you, knowing a little about git will serve you well not only in this course!
+> Please read the first three chapters of the [git Book](https://git-scm.com/book/en/v2). It takes maybe 30-60 minutes, and I promise you, knowing a little about git will serve you well not only in this course!
 
-Git knows the state of each file in your git repository! But not only that, it also remembers all the previously commited stages. It knows the differences of all these stages and they are easily recoverable. Let's explore and explain some of its core functionality:
+Git knows the state of each file in your git repository! But not only that, it also remembers all the previously committed stages. It knows the differences of all these stages, and they are easily recoverable. Let's explore and explain some of its core functionality:
 
 ```bash
 # Change directory (~ stands for your home directory)
@@ -243,7 +243,7 @@ So far in this example, we've only worked on our local machine. What if we want 
 3. Go back to your terminal and paste it (make sure to be in the `hello_git` repository) and execute
 4. See: your local repository has been mirrored on gitlab: https://gitlab.ethz.ch/daniehei/hello_git (replace daniehei with your username)
 
-Now the git cycle starts from before. Let's say we want to append a line in in hello.txt
+Now the git cycle starts from before. Let's say we want to append a line in hello.txt
 
 ```bash
 # >> appends whereas > would overwrite
@@ -274,7 +274,7 @@ if you want to share your repository you need to navigate to clone and copy the 
 ![share_repo](assets/share_repo.png)
 
 ```bash
-# Let's remove our local repository (assume your computer cuaght fire)
+# Let's remove our local repository (assume your computer caught fire)
 cd ~/gitlab
 rm -rf hello_git
 
@@ -300,15 +300,15 @@ In the meantime, your colleague might change something and push it to the gitlab
     - `git pull`: Pull potential changes from remote
 - Please read the first three chapters of the [git Book](https://git-scm.com/book/en/v2).
 
-> If you are overwhealmed with all this command line awesomeness you may want to use a GUI tool such [GitHub Desktop](https://desktop.github.com/). However, I would encourage you to embrace the command line! :) The commands discussed so far, can take you very far! If you would like to learn more this might be a good [starting point](https://www.learnshell.org/). The terminal is just an interface to interact with our computer. Inside the terminal you can run different shells: This is usually `bash` or `zsh` (which are very similar at our level of understanding)... If you are a Mac user, you might want to explore the [brew](https://brew.sh/) package manager to install and manage software (for example try to install lazygit). On Windows there is a similar package manager such as [chocolatey](https://chocolatey.org/). Linux uses `apt` or similar tools.
+> If you are overwhelmed with all this command line awesomeness you may want to use a GUI tool such [GitHub Desktop](https://desktop.github.com/). However, I would encourage you to embrace the command line! :) The commands discussed so far, can take you very far! If you would like to learn more this might be a good [starting point](https://www.learnshell.org/). The terminal is just an interface to interact with our computer. Inside the terminal you can run different shells: This is usually `bash` or `zsh` (which are very similar at our level of understanding)... If you are a Mac user, you might want to explore the [brew](https://brew.sh/) package manager to install and manage software (for example try to install lazygit). On Windows there is a similar package manager such as [chocolatey](https://chocolatey.org/). Linux uses `apt` or similar tools.
 
 
 
 ## PostgreSQL
 
-Fed up with duplicating `.csv` files and send data via mail attachments and wait for large spreadsheets to load in Excel? Then it is time to learn a little bit about [PostgreSQL](https://www.postgresql.org/). We are here only touching on the bare minimum to accomplish our task. So what are we going to do?
+Fed up with duplicating `.csv` files and send data via mail attachments and wait for large spreadsheets to load in Excel? Then it is time to learn a little about [PostgreSQL](https://www.postgresql.org/). We are here only touching on the bare minimum to accomplish our task. So what are we going to do?
 
-You will collect customer survey data on different buslines in Winterthur (an Origin-Destination survey: Who does travel with a particular bus from where to where and why?). Each group will ride on a different busline (potentially on different days). However, every group will have to analyse all the buslines. So how will we do it? One strategy would be that each of the groups digitizes the data collected by paper and pencil. One poor soul (= one of us research assistants) would then have to collect these individual spreadsheets and consolidate the data into one master file. This file would then be distributed to the students, that is each student would have a copy of it on their local machines (all the data is multiplied). Oh no, I've made a mistake in the consolidation: Resend the corrected master file to all the students... We can do better than this and host the data at a generally (by you students) acessible server.
+You will collect customer survey data on different bus lines in Winterthur (an Origin-Destination survey: Who does travel with a particular bus from where to where and why?). Each group will ride on a different bus line (potentially on different days). However, every group will have to analyse all the bus lines. So how will we do it? One strategy would be that each of the groups digitizes the data collected by paper and pencil. One poor soul (= one of us research assistants) would then have to collect these individual spreadsheets and consolidate the data into one master file. This file would then be distributed to the students, that is each student would have a copy of it on their local machines (all the data is multiplied). Oh no, I've made a mistake in the consolidation: Resend the corrected master file to all the students... We can do better than this and host the data at a generally (by you students) accessible server.
 
 > As already mentioned, you can of course also run a postgres server on your local machine. You are encouraged to try setting a DB up on your local computer.
 
@@ -335,7 +335,7 @@ name;age
 Daniel;30
 ```
 
-But how do we actually execute the script? For this, I have written a simple bash script that helps you run it. Don't worry, all you have to do in the exercise is specifying the sql script and I will show you how to run it.
+But how do we actually execute the script? For this, I have written a simple bash script that helps you run it. Don't worry, all you have to do in the exercise is specifying the sql script, and I will show you how to run it.
 
 > Remark: You could also achieve the same thing (i.e. initialize and populate the table) all from within Python with the `psycopg2` package. But we thought it would be illustrative to use the actual sql syntax to do it. If you want to follow the pythonic way, [this]([psycopg2](https://www.psycopg.org/psycopg3/docs/basic/usage.html) link gets you started.
 
@@ -370,10 +370,10 @@ pg.query_example()
 3. Write an sql script that initializes a new table called `<your eth-abbr>_message` containing only one column `message` and populate it with one secret message.
 4. Commit the newly created script and add a meaningful commit message (hint: `git add . && git commit -m "your message"`).
 5. Try to implement the Python package repository structure as in `PuvIntro` or follow this [tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
-6. Initilize a virtual environment as well as make sure to add a `.gitignore` with the environments name.
+6. Initialize a virtual environment as well as make sure to add a `.gitignore` with the environments name.
 7. Write a function that queries the newly created table (with `psycopg2`) and prints a message stored in the message table (hint: see `src/greatest_package/postgres.py`).
 8. Save the dependencies to a `requirements.txt` file (hint: `pip freeze > requirements.txt`).
 7. Commit your awesome package.
-8. Initilaize an new gitlab repository (hint: just navigate to *Create new project* https://gitlab.ethz.ch/projects/new and copy paste the code that pops up when you click *Show command* - you can paste the command into your terminal and execute it).
+8. Initialize a new gitlab repository (hint: just navigate to *Create new project* https://gitlab.ethz.ch/projects/new and copy and paste the code that pops up when you click *Show command* - you can paste the command into your terminal and execute it).
 9. Share your code with the message recipient (hint: See picture above where to find the link).
-10. Clone someone elses awesome package and try to call the function printing the secret message (hint: Don't forget to install the dependencies with `python3 -m pip install -r requirement.txt`).
+10. Clone someone else's awesome package and try to call the function printing the secret message (hint: Don't forget to install the dependencies with `python3 -m pip install -r requirement.txt`).
