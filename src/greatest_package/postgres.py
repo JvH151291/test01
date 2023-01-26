@@ -18,11 +18,11 @@ def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> tup
     """
     # Connect to an existing database
     with psycopg2.connect(
-            host="id-hdb-psgr-cp76.ethz.ch", port="5432", user=sql_user, password=pw, database="ivtdata"
+        host="id-hdb-psgr-cp76.ethz.ch", port="5432", user=sql_user, password=pw, database="ivtdata"
     ) as conn:
         # Open a cursor to perform database operations
         with conn.cursor() as cur:
             # Query the database and obtain data as Python objects.
-            cur.execute("SELECT * FROM {}".format(eth_username))
+            cur.execute(f"SELECT * FROM {eth_username}")
             person = cur.fetchall()
             return person[0]
