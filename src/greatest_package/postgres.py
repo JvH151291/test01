@@ -1,9 +1,7 @@
-from typing import Tuple
-
 import psycopg2
 
 
-def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> Tuple[int, str]:
+def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> tuple[int, str]:
     """
     Queries the table corresponding to an eth_username and returns the name and age
 
@@ -20,9 +18,8 @@ def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> Tup
     """
     # Connect to an existing database
     with psycopg2.connect(
-        host="id-hdb-psgr-cp76.ethz.ch", port="5432", user=sql_user, password=pw, database="ivtdata"
+            host="id-hdb-psgr-cp76.ethz.ch", port="5432", user=sql_user, password=pw, database="ivtdata"
     ) as conn:
-
         # Open a cursor to perform database operations
         with conn.cursor() as cur:
             # Query the database and obtain data as Python objects.
