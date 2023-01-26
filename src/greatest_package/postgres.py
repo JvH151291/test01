@@ -23,7 +23,7 @@ def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> Tup
         port="5432",
         user=sql_user,
         password=pw,
-        database="ivtdata"
+        database="puv"
         ) as conn:
 
         # Open a cursor to perform database operations
