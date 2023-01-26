@@ -7,7 +7,7 @@
 For this introduction you need the following software:
 
 - [Python](https://www.python.org/) (python3)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [Pycharm Professional](https://www.jetbrains.com/pycharm)
 - [git](https://git-scm.com/)
 - [PostgreSQL](https://www.postgresql.org/)
 
@@ -54,7 +54,7 @@ Sooner or later, you will realize that sharing and managing (raw) data with `.cs
 
 > Of course you can also run a Postgres DB on your local computer and organize your personal data without the need of a server (a server is just a computer system attached to a network).
 
-[`Visual Studio Code`](https://code.visualstudio.com/) is just an *Interactive Development Environment*, i.e. a text editor with superpowers such as syntax highlighting, autocompletion, syntax highlighting, signature help, integrated REPL, etc. You are free to use another one you like (for example PyCharm is another popular choice). While *Jupyter Notebooks* are very neat, they have some limitations in data analysis (for example code output and chronology of ran cells gets stored in the very file which makes it difficult to version control). Personally, I have a preference for general purpose tools such that you do not have to learn/use a new environment when you switch the language...
+[Pycharm Professional](https://www.jetbrains.com/pycharm) is just an *Interactive Development Environment*, i.e. a text editor with superpowers such as syntax highlighting, autocompletion, syntax highlighting, signature help, integrated REPL, etc. You are free to use another one you like (for example PyCharm is another popular choice). While *Jupyter Notebooks* are very neat, they have some limitations in data analysis (for example code output and chronology of ran cells gets stored in the very file which makes it difficult to version control). Personally, I have a preference for general purpose tools such that you do not have to learn/use a new environment when you switch the language...
 
 But let's get started!
 
