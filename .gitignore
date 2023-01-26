@@ -1,2 +1,4 @@
 # Exclude virtaul environment (we have the requirements to easily build it again)
 env
+.idea
+venv
