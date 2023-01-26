@@ -11,7 +11,7 @@ def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> Tup
 
     :param pw: The password corresponding to sql_user
     :type pw: str
-    
+
     :param eth_username: The ETH username (should correspond to a table name; default: "Daniel")
     :type eth_username: str
 
@@ -19,12 +19,8 @@ def query_example(sql_user: str, pw: str, eth_username: str = "daniehei") -> Tup
     """
     # Connect to an existing database
     with psycopg2.connect(
-        host="id-hdb-psgr-cp76.ethz.ch",
-        port="5432",
-        user=sql_user,
-        password=pw,
-        database="ivtdata"
-        ) as conn:
+        host="id-hdb-psgr-cp76.ethz.ch", port="5432", user=sql_user, password=pw, database="ivtdata"
+    ) as conn:
 
         # Open a cursor to perform database operations
         with conn.cursor() as cur:
