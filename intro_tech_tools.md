@@ -21,6 +21,7 @@ We would like to help you establish (what we think) good practices in data manag
 - `PostgreSQL` database management
 - `Visual Studio Code` IDE (of course, you are free to use any editor you like - extra points for emacs or Vim users ;)
 - `Python`, `pip` and `venv` (virtual environments, you may also use conda if you prefer)
+- `black` to format your code automatically
 
 This document introduces these tools and hints to additional resources. We know, it is a lot to take in at once. But you can use this document as a reference for the course. Apart from the Python code that you will have to write to conduct the analysis, you should find a simple example for every command (of the other tools) that we need in this course which you can slightly adjust to suit your needs.
 
@@ -215,7 +216,26 @@ with their own, well-defined dependencies.
 
 Remark: `--force` allows pipreqs to overwrite an existing `requirements.txt`.
 
+## Black to format your code
 
+Formatting code is an art and can be highly subjective. However, if all people in a team were to format their code by individual preference, the repository is getting messy.
+Hence, we rely on `black`:
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+Black is inspired by Henry Ford who is often quoted as *"you can have your car in any color you like, as long as its black"*. 'black' follows the same philosophy, as it allows almost no customisation, leading to consistently formatted code. To use it install it first in your venv:
+
+```bash
+pip install black
+```
+
+Once installed, you can use it to format all the conde in your project at once:
+
+```bash
+black -l120 . --exclude=venv,assets
+```
+
+The arguments mean the following: `-l120` restricts lines to be at max 120 characters long. `.` is telling it, that we want it to reformat all code in this directory and its subdirectories. Finally, we `--exclude` `venv` and `assets`. 
 
 ## Git version control
 
