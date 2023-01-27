@@ -192,8 +192,7 @@ Once you have activated the virtual environment, there is no need to call pip as
 You can list installed packages with `pip list`. If you want to make your environment reproducible, you can write the current state to a `requirements.txt` file like so:
 
 ```bash
-#pip freeze > requirements.txt
-pipreqs
+pip freeze > requirements.txt
 ```
 
 Remark: The `>` operator pipes the output of the LHS into the file on the RHS.
