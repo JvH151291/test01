@@ -320,7 +320,7 @@ Formatting code is an art and can be highly subjective. However, if all people i
 individual preference, the repository is getting messy. To use reformatting in our `toolchain.cmd`/`toolchain.sh`, run:
 
 ```bash
-black toolchain --reformat
+toolchain --reformat
 ```
 
 This command will apply the three following tools, using the config in `pyproject.toml`
