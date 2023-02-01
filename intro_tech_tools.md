@@ -16,9 +16,9 @@ Therefore, we use (and partially enforce the use) of the following tools in this
 
 - `git` version control and `GitLab` (to collaborate on code)
 - `PostgreSQL` database management
-- `Visual Studio Code` IDE (of course, you are free to use any editor you like - extra points for emacs or Vim users ;)
+- `Pycharm Professional` IDE (of course, you are free to use any editor you like - extra points for emacs or Vim users ;)
 - `Python`, `pip` and `venv` (virtual environments, you may also use conda if you prefer)
-- `black` to format your code automatically
+- `toolchain` a set of tools to efficiently handle tedious things like formatting etc.
 
 This document introduces these tools and hints to additional resources. We know, it is a lot to take in at once. But you
 can use this document as a reference for the course. Apart from the Python code that you will have to write to conduct
