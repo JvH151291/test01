@@ -378,7 +378,7 @@ can check two things without running the code: Validity of our type hints and if
 To run these two checks sequentially, with `toolchain.cmd`/`toolchain.sh`, run:
 
 ```bash
-black toolchain --check
+toolchain --check
 ```
 
 This command will apply the two following tools, using the config in `pyproject.toml`.
@@ -418,7 +418,7 @@ Ok, we have formatted and *clean* code, but what about its complexity and mainta
 Use the script to see it:
 
 ```bash
-black toolchain --score
+toolchain --score
 ```
 
 #### Radon:
@@ -445,7 +445,7 @@ also
 run all the tests, that we have available. To do that, run:
 
 ```bash
-black toolchain --build
+toolchain --build
 ```
 
 #### BUILD
@@ -476,7 +476,7 @@ of `.\\src`. In our case, it is `test_greatest_package`, where we have one unitt
 The last command,
 
 ```bash
-black toolchain --install
+toolchain --install
 ```
 
 is a pure convenience feature, as it allows us to install the latest `.whl` file that is our current package in the
