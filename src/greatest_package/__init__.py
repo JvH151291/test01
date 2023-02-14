@@ -10,5 +10,5 @@ This package is the greatest package ever - believe me. It is really great!
 __version__ = "0.0.1"
 
 
-def version():
+def version() -> str:
     return __version__
