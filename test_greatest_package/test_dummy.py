@@ -3,7 +3,6 @@ from unittest import skip
 
 
 class ExampleTestCase(unittest.TestCase):
-
     def test_something_that_is_true(self) -> None:
         self.assertEqual(True, True)
 
@@ -16,5 +15,5 @@ class ExampleTestCase(unittest.TestCase):
             a = 1 / 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
