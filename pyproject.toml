@@ -30,6 +30,7 @@ exclude = "/(\n    \\.eggs\n  | \\.git\n  | \\.hg\n  | \\.mypy_cache\n  | \\.tox
 
 [tool.isort]
 profile = "black"
+line_length = 120
 src_paths = [ "src", "test",]
 skip_glob = [ "venv/*", "build_venv/*",]
 
