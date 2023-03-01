@@ -106,7 +106,7 @@ But let's get started!
 1. Fire up a terminal running `bash` or the `zsh` (on Windows use [Git BASH](https://gitforwindows.org/))
 2. Check that git is installed and see some commands that we will use later: `git --help`
 3. Create a repository on your root and switch to it `cd ~ && mkdir gitlab && cd gitlab`
-4. Get this PuvIntro repository (i.e. `clone` it from gitlab) `git clone git@gitlab.ethz.ch:daniehei/PuvIntro.git`
+4. Get this PuvIntro repository (i.e. `clone` it from gitlab) `git clone https://gitlab.ethz.ch/daniehei/PuvIntro.git`
 5. Open vscode (`code .`) and click on the README file.
 6. Open up a terminal inside vscode with `Ctrl+Shift+P` (opens the command palette) and type terminal and hit `Enter`.
 7. Create a virtual environment called *env* with `python3 -m venv env`.
@@ -576,7 +576,7 @@ cd ~/gitlab
 rm -rf hello_git
 
 # And clone the remote repository
-git clone git@gitlab.ethz.ch:daniehei/hello_git.git
+git clone https://gitlab.ethz.ch/daniehei/hello_git.git
 
 # See it is here again
 ls
