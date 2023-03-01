@@ -9,6 +9,11 @@ For this introduction you need the following software:
 - [git](https://git-scm.com/)
 - [PostgreSQL](https://www.postgresql.org/)
 
+> For windows users: You might want to use [chocolatey](https://chocolatey.org/install)
+> For mac users: You might want to use [brew](https://brew.sh/)
+> These are package managers (allow you to install software easily!) similar to pip. However, pip is for python packages
+> whereas the above tools are for OS software (e.g. pycharm, postgresql, etc.).
+
 ## Motivation
 
 We would like to help you establish (what we think) good practices in data management and programming/scripting.
@@ -133,8 +138,8 @@ By the way, the `PuvIntro` is structured as a Python package:
 11. Therefore we can install it locally with `pip install -e .`
 12. The PuvIntro package provides a very useful functionality
     - Start the Python interpreter `Python`
-    - `from greatest_package import greet`
-    - `greet.daniehei_greets()`
+    - `from greatest_package import greetings`
+    - `greetings.daniehei_greets()`
 13. For illustration, this project also uses some dependencies as listed in the `requirements.txt`
     - Install them with `pip install -r requirements.txt`
 14. Open the file (module) `greetings.py` and extend it with a function that prints a greeting message (use your
@@ -218,7 +223,7 @@ python3 -m venv env
 source env/bin/activate
 
 # On Windows
-...
+source env/Scripts/activate
 
 # Deactivate
 deactivate
