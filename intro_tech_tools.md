@@ -9,8 +9,8 @@ For this introduction you need the following software:
 - [git](https://git-scm.com/)
 - [PostgreSQL](https://www.postgresql.org/)
 
-> For windows users: You might want to use [chocolatey](https://chocolatey.org/install)
-> For mac users: You might want to use [brew](https://brew.sh/)
+> For windows users: You might want to use [chocolatey](https://chocolatey.org/install).
+> For mac users: You might want to use [brew](https://brew.sh/).
 > These are package managers (allow you to install software easily!) similar to pip. However, pip is for python packages
 > whereas the above tools are for OS software (e.g. pycharm, postgresql, etc.).
 
@@ -21,7 +21,7 @@ Therefore, we use (and partially enforce the use) of the following tools in this
 
 - `git` version control and `GitLab` (to collaborate on code)
 - `PostgreSQL` database management
-- `Pycharm Professional` IDE (of course, you are free to use any editor you like - extra points for emacs or Vim users ;)
+- `Pycharm Community` IDE (of course, you are free to use any editor you like - extra points for emacs or Vim users ;)
 - `Python`, `pip` and `venv` (virtual environments, you may also use conda if you prefer)
 - `toolchain` a set of tools to efficiently handle tedious things like formatting etc.
 
