@@ -6,3 +6,6 @@ def daniehei_greets(my_name: str = "Daniel") -> None:
     :type my_name: str
     """
     print(f"{my_name} welcomes you to the Projektübung Verkehr class")
+
+def julian_greets(my_name: str = "Julian") -> None:
+    print(f"{my_name} says yoo mf")
